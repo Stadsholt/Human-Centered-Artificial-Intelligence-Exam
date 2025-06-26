@@ -10,6 +10,7 @@ For the text modality I created PC build comparator that takes in two text-based
 ![Text Modality](https://github.com/user-attachments/assets/15664a7b-4e4f-4c96-8b7e-58bfa156ec86)
 
 **How does it work?**
+
 The application is built using LangChain and OpenAI’s GPT-3.5-turbo model, wrapped in a Gradio interface for user interaction. When the user submits two builds and selects their desired comparison parameters, the system constructs a series of prompts accordingly. These include the two PC build descriptions, the desired focus (fx GPU), and the preferred explanation complexity. The prompts are passed into the language model using LangChain's ChatOpenAI, which then returns a natural language comparison. The Gradio interface handles all user inputs and displays the final AI-generated output seamlessly.
 
 # Modality 2 - Image:
@@ -26,5 +27,7 @@ The application uses the [Stable Diffusion InstructPix2Pix](https://huggingface.
 
 This interactive webcam-based game challenges users to quickly express three specific emotions, happy, angry and surprised, across three timed rounds. The system uses real-time facial analysis to detect whether the correct emotion is being expressed. If the emotion is correctly identified by the model, the player progresses to the next round. Once all rounds are completed, the total time is recorded and added to a persistent leaderboard, rewarding users who complete the game in the shortest time.
 ![Emotion Modality](https://github.com/user-attachments/assets/c6dab7e5-80b4-4ae1-a0ee-fc965c007cb1)
+
 **How does it work?**
+
 The game is implemented in Python using OpenCV for webcam capture and DeepFace for real-time emotion recognition. When the game starts, the user's webcam is activated via a custom JavaScript bridge for Google Colab. The user is prompted to perform a specific emotion for each round. The system then analyses the webcam feed using DeepFace's analyze method, checking if the detected dominant emotion matches the expected one. The user’s completion time is calculated using Python’s datetime module, and the best times are stored and displayed from a leaderboard.txt file. All visual feedback, such as round number and detection messages, is overlaid directly on the live video stream using OpenCV’s putText.
